@@ -1,0 +1,24 @@
+{
+  "name": "remotebrief",
+  "version": "3.0.0",
+  "private": true,
+  "description": "RemoteBrief — веб-платформа дистанционных инструктажей с ИИ-наставником и автопротоколами",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "env:setup": "node scripts/setup-env.mjs",
+    "db:generate": "npm run db:generate -w @remotebrief/database",
+    "db:push": "npm run env:setup && npm run db:push -w @remotebrief/database",
+    "db:seed": "npm run env:setup && npm run db:seed -w @remotebrief/database"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
